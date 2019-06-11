@@ -13,6 +13,10 @@
 		4E8942CD22ADE60700F3F44C /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8942CC22ADE60700F3F44C /* Assets.xcassets */; };
 		4E8942D022ADE60700F3F44C /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 4E8942CF22ADE60700F3F44C /* Preview Assets.xcassets */; };
 		4E8942D322ADE60700F3F44C /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 4E8942D122ADE60700F3F44C /* LaunchScreen.storyboard */; };
+		4E8942DB22ADE74800F3F44C /* Unsplash.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8942DA22ADE74800F3F44C /* Unsplash.swift */; };
+		4E8942DD22ADE78200F3F44C /* Models.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8942DC22ADE78200F3F44C /* Models.swift */; };
+		4E8942DF22ADE8F700F3F44C /* UnsplashStore.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8942DE22ADE8F700F3F44C /* UnsplashStore.swift */; };
+		4E8942E122ADF1DF00F3F44C /* LoadingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 4E8942E022ADF1DF00F3F44C /* LoadingView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +28,10 @@
 		4E8942CF22ADE60700F3F44C /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		4E8942D222ADE60700F3F44C /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		4E8942D422ADE60700F3F44C /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		4E8942DA22ADE74800F3F44C /* Unsplash.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Unsplash.swift; sourceTree = "<group>"; };
+		4E8942DC22ADE78200F3F44C /* Models.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Models.swift; sourceTree = "<group>"; };
+		4E8942DE22ADE8F700F3F44C /* UnsplashStore.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UnsplashStore.swift; sourceTree = "<group>"; };
+		4E8942E022ADF1DF00F3F44C /* LoadingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoadingView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -63,6 +71,10 @@
 				4E8942D122ADE60700F3F44C /* LaunchScreen.storyboard */,
 				4E8942D422ADE60700F3F44C /* Info.plist */,
 				4E8942CE22ADE60700F3F44C /* Preview Content */,
+				4E8942DA22ADE74800F3F44C /* Unsplash.swift */,
+				4E8942DC22ADE78200F3F44C /* Models.swift */,
+				4E8942DE22ADE8F700F3F44C /* UnsplashStore.swift */,
+				4E8942E022ADF1DF00F3F44C /* LoadingView.swift */,
 			);
 			path = UnsplashClient;
 			sourceTree = "<group>";
@@ -149,6 +161,10 @@
 				4E8942C722ADE60500F3F44C /* AppDelegate.swift in Sources */,
 				4E8942C922ADE60500F3F44C /* SceneDelegate.swift in Sources */,
 				4E8942CB22ADE60500F3F44C /* ContentView.swift in Sources */,
+				4E8942DB22ADE74800F3F44C /* Unsplash.swift in Sources */,
+				4E8942DD22ADE78200F3F44C /* Models.swift in Sources */,
+				4E8942E122ADF1DF00F3F44C /* LoadingView.swift in Sources */,
+				4E8942DF22ADE8F700F3F44C /* UnsplashStore.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

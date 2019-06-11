@@ -8,9 +8,17 @@
 
 import SwiftUI
 
-struct LoadingView : View {
-    var body: some View {
-        Text(/*@START_MENU_TOKEN@*/"Hello World!"/*@END_MENU_TOKEN@*/)
+struct LoadingView: UIViewRepresentable {
+    typealias UIViewType = UIActivityIndicatorView
+    
+    func makeUIView(context: UIViewRepresentableContext<LoadingView>) -> UIActivityIndicatorView {
+        let view = UIActivityIndicatorView(style: .large)
+        view.startAnimating()
+        return view
+    }
+    
+    func updateUIView(_ uiView: UIActivityIndicatorView, context: UIViewRepresentableContext<LoadingView>) {
+        // Todo
     }
 }
 
