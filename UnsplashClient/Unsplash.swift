@@ -11,7 +11,7 @@ struct UnsplashElement: Codable {
     let createdAt, updatedAt: Date
     let width, height: Int
     let color: String
-    let unsplashDescription: JSONNull?
+    let unsplashDescription: String?
     let altDescription: String?
     let urls: Urls
     let links: UnsplashLinks
@@ -67,8 +67,8 @@ extension UnsplashElement {
         width: Int? = nil,
         height: Int? = nil,
         color: String? = nil,
-        unsplashDescription: JSONNull?? = nil,
-        altDescription: String?? = nil,
+        unsplashDescription: String? = nil,
+        altDescription: String? = nil,
         urls: Urls? = nil,
         links: UnsplashLinks? = nil,
         categories: [JSONAny]? = nil,
