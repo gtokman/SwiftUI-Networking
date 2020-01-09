@@ -9,28 +9,33 @@
 import SwiftUI
 import Combine
 
-class UnsplashStore: BindableObject {
-    static let url = URL(string: "https://api.unsplash.com/photos?client_id=YOUR_API_KEY")!
+class UnsplashStore: ObservableObject {
+    #error("Add an Access Key from unsplash website: https://unsplash.com/oauth/applications")
+    static let apiKey = ""
+    static let url = URL(string: "https://api.unsplash.com/photos?client_id=\(UnsplashStore.apiKey)")!
     var models: [Model] = [] {
         didSet {
-            didChange.send(())
+            print("sent: \(models)")
+            objectWillChange.send(())
         }
     }
-    var didChange = PassthroughSubject<Void, Never>()
-    
+    var objectWillChange = PassthroughSubject<Void, Never>()
+
     func fetch() {
         URLSession.shared.dataTask(with: UnsplashStore.url) { (data, response, error) in
             guard let data = data, error == nil else {
                 return
             }
-            guard let models = try? Unsplash(data: data) else {
-                return
-            }
-            let viewModels = models
-                .map { $0.user }
-                .compactMap(Model.init)
-            DispatchQueue.main.async {
-                self.models = viewModels
+            do {
+                let models = try Unsplash(data: data)
+                let viewModels = models
+                    .compactMap { $0.user }
+                    .compactMap(Model.init)
+                DispatchQueue.main.async {
+                    self.models = viewModels
+                }
+            } catch {
+                print("Error: \(error)")
             }
         }.resume()
     }

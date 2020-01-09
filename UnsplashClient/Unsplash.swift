@@ -8,38 +8,22 @@ import Foundation
 // MARK: - UnsplashElement
 struct UnsplashElement: Codable {
     let id: String
-    let createdAt, updatedAt: Date
+    let createdAt, updatedAt: String?
     let width, height: Int
     let color: String
     let unsplashDescription: String?
     let altDescription: String?
     let urls: Urls
     let links: UnsplashLinks
-    let categories: [JSONAny]
-    let sponsored: Bool
+    let categories: [JSONAny]?
+    let sponsored: Bool?
     let sponsoredBy: User?
     let sponsoredImpressionsID: String?
     let likes: Int
-    let likedByUser: Bool
-    let currentUserCollections: [JSONAny]
-    let user: User
+    let likedByUser: Bool?
+    let currentUserCollections: [JSONAny]?
+    let user: User?
     let sponsorship: Sponsorship?
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case createdAt = "created_at"
-        case updatedAt = "updated_at"
-        case width, height, color
-        case unsplashDescription = "description"
-        case altDescription = "alt_description"
-        case urls, links, categories, sponsored
-        case sponsoredBy = "sponsored_by"
-        case sponsoredImpressionsID = "sponsored_impressions_id"
-        case likes
-        case likedByUser = "liked_by_user"
-        case currentUserCollections = "current_user_collections"
-        case user, sponsorship
-    }
 }
 
 // MARK: UnsplashElement convenience initializers and mutators
@@ -62,8 +46,8 @@ extension UnsplashElement {
     
     func with(
         id: String? = nil,
-        createdAt: Date? = nil,
-        updatedAt: Date? = nil,
+        createdAt: String? = nil,
+        updatedAt: String? = nil,
         width: Int? = nil,
         height: Int? = nil,
         color: String? = nil,
@@ -73,7 +57,7 @@ extension UnsplashElement {
         links: UnsplashLinks? = nil,
         categories: [JSONAny]? = nil,
         sponsored: Bool? = nil,
-        sponsoredBy: User?? = nil,
+        sponsoredBy: User? = nil,
         sponsoredImpressionsID: String?? = nil,
         likes: Int? = nil,
         likedByUser: Bool? = nil,
@@ -115,13 +99,7 @@ extension UnsplashElement {
 
 // MARK: - UnsplashLinks
 struct UnsplashLinks: Codable {
-    let linksSelf, html, download, downloadLocation: String
-    
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case html, download
-        case downloadLocation = "download_location"
-    }
+    let linksSelf, html, download, downloadLocation: String?
 }
 
 // MARK: UnsplashLinks convenience initializers and mutators
@@ -168,33 +146,16 @@ extension UnsplashLinks {
 // MARK: - User
 struct User: Codable {
     let id: String
-    let updatedAt: Date
-    let username, name, firstName: String
+    let updatedAt: String?
+    let username, name, firstName: String?
     let lastName, twitterUsername: String?
     let portfolioURL: String?
     let bio, location: String?
     let links: UserLinks
-    let profileImage: ProfileImage
+    let profileImage: ProfileImage?
     let instagramUsername: String?
-    let totalCollections, totalLikes, totalPhotos: Int
-    let acceptedTos: Bool
-    
-    enum CodingKeys: String, CodingKey {
-        case id
-        case updatedAt = "updated_at"
-        case username, name
-        case firstName = "first_name"
-        case lastName = "last_name"
-        case twitterUsername = "twitter_username"
-        case portfolioURL = "portfolio_url"
-        case bio, location, links
-        case profileImage = "profile_image"
-        case instagramUsername = "instagram_username"
-        case totalCollections = "total_collections"
-        case totalLikes = "total_likes"
-        case totalPhotos = "total_photos"
-        case acceptedTos = "accepted_tos"
-    }
+    let totalCollections, totalLikes, totalPhotos: Int?
+    let acceptedTos: Bool?
 }
 
 // MARK: User convenience initializers and mutators
@@ -217,7 +178,7 @@ extension User {
     
     func with(
         id: String? = nil,
-        updatedAt: Date? = nil,
+        updatedAt: String? = nil,
         username: String? = nil,
         name: String? = nil,
         firstName: String? = nil,
@@ -266,13 +227,8 @@ extension User {
 
 // MARK: - UserLinks
 struct UserLinks: Codable {
-    let linksSelf, html, photos, likes: String
+    let linksSelf, html, photos, likes: String?
     let portfolio, following, followers: String
-    
-    enum CodingKeys: String, CodingKey {
-        case linksSelf = "self"
-        case html, photos, likes, portfolio, following, followers
-    }
 }
 
 // MARK: UserLinks convenience initializers and mutators
@@ -368,13 +324,8 @@ extension ProfileImage {
 
 // MARK: - Sponsorship
 struct Sponsorship: Codable {
-    let impressionsID, tagline: String
-    let sponsor: User
-    
-    enum CodingKeys: String, CodingKey {
-        case impressionsID = "impressions_id"
-        case tagline, sponsor
-    }
+    let impressionsID, tagline: String?
+    let sponsor: User?
 }
 
 // MARK: Sponsorship convenience initializers and mutators
@@ -496,6 +447,7 @@ extension Array where Element == Unsplash.Element {
 
 func newJSONDecoder() -> JSONDecoder {
     let decoder = JSONDecoder()
+    decoder.keyDecodingStrategy = .convertFromSnakeCase
     if #available(iOS 10.0, OSX 10.12, tvOS 10.0, watchOS 3.0, *) {
         decoder.dateDecodingStrategy = .iso8601
     }

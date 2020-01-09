@@ -16,9 +16,9 @@ struct Model: Identifiable {
     
     init(user: User) {
         self.id = user.id
-        self.name = user.name
+        self.name = user.name ?? "No name"
         self.bio = user.bio ?? "No bio"
-        if let url = URL(string: user.profileImage.medium) {
+        if let url = URL(string: user.profileImage?.medium ?? "") {
             let data = try! Data(contentsOf: url)
             self.image = UIImage(data: data) ?? UIImage(imageLiteralResourceName: "Image")
         } else {

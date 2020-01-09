@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct ContentView : View {
-    @ObjectBinding var store: UnsplashStore
+    @ObservedObject var store: UnsplashStore
     
     var body: some View {
         Group {
